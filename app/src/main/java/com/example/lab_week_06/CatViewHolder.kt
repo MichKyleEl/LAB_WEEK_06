@@ -7,26 +7,39 @@ import android.widget.ImageView
 import com.example.lab_week_06.model.CatModel
 import com.example.lab_week_06.model.CatBreed
 import com.example.lab_week_06.model.Gender
-import com.example.lab_week_06.GlideImageLoader
-import com.example.lab_week_06.ImageLoader
 
 private val FEMALE_SYMBOL = "\u2640"
 private val MALE_SYMBOL = "\u2642"
 private const val UNKNOWN_SYMBOL = "?"
-class CatViewHolder(containerView: View, private val imageLoader:
-ImageLoader) : RecyclerView.ViewHolder(containerView) {
+
+// Change 1: The constructor now expects the listener from the CatAdapter
+class CatViewHolder(
+    private val containerView: View,
+    private val imageLoader: ImageLoader,
+    private val onClickListener: CatAdapter.OnClickListener // <-- Correct type
+) : RecyclerView.ViewHolder(containerView) {
+
     private val catBiographyView: TextView by lazy {
-        containerView.findViewById(R.id.cat_biography) }
+        containerView.findViewById(R.id.cat_biography)
+    }
     private val catBreedView: TextView by lazy {
-        containerView.findViewById(R.id.cat_breed) }
+        containerView.findViewById(R.id.cat_breed)
+    }
     private val catGenderView: TextView by lazy {
-        containerView.findViewById(R.id.cat_gender) }
+        containerView.findViewById(R.id.cat_gender)
+    }
     private val catNameView: TextView by lazy {
-        containerView.findViewById(R.id.cat_name) }
+        containerView.findViewById(R.id.cat_name)
+    }
     private val catPhotoView: ImageView by lazy {
-        containerView.findViewById(R.id.cat_photo) }
-    //This function is called in the adapter to provide the binding function
+        containerView.findViewById(R.id.cat_photo)
+    }
+
     fun bindData(cat: CatModel) {
+        containerView.setOnClickListener {
+            // Change 2: Call the correct method name from the adapter's interface
+            onClickListener.onItemClick(cat) // <-- This now works
+        }
         imageLoader.loadImage(cat.imageUrl, catPhotoView)
         catNameView.text = cat.name
         catBreedView.text = when (cat.breed) {
@@ -42,4 +55,6 @@ ImageLoader) : RecyclerView.ViewHolder(containerView) {
             else -> UNKNOWN_SYMBOL
         }
     }
+
+    // Change 3: The local interface is no longer needed and has been removed.
 }

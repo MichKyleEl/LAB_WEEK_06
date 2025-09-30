@@ -61,6 +61,55 @@ class MainActivity : AppCompatActivity() {
                     "Curious George",
                     "Award winning investigator",
                     "https://cdn2.thecatapi.com/images/bar.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.ExoticShortHair,
+                    "Simba",
+                    "Loves to nap in sunbeams",
+                    "https://cdn2.thecatapi.com/images/aax.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.BalineseJavanese,
+                    "Luna",
+                    "Expert at finding trouble",
+                    "https://cdn2.thecatapi.com/images/bto.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.AmericanCurl,
+                    "Milo",
+                    "Professional box inspector",
+                    "https://cdn2.thecatapi.com/images/d13.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.ExoticShortHair,
+                    "Daisy",
+                    "Will trade cuddles for snacks",
+                    "https://cdn2.thecatapi.com/images/ebv.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.BalineseJavanese,
+                    "Oliver",
+                    "Has a PhD in zoomies",
+                    "https://cdn2.thecatapi.com/images/99p.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.AmericanCurl,
+                    "Nala",
+                    "Queen of the household",
+                    "https://cdn2.thecatapi.com/images/MTk2MTcyOQ.jpg"
+                ),
+                CatModel(
+                    Gender.Unknown,
+                    CatBreed.ExoticShortHair,
+                    "Shadow",
+                    "Master of stealth",
+                    "https://cdn2.thecatapi.com/images/MTY5MDcyNQ.jpg"
                 )
             )
         )
